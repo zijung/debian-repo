@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+if [ "$1" = "configure" ]; then
+  update-alternatives --install /usr/share/xgreeters/lightdm-greeter.desktop \
+  lightdm-greeter /usr/share/xgreeters/lightdm-webkit2-greeter.desktop 40
+fi
+
+#DEBHELPER#
+
+exit 0

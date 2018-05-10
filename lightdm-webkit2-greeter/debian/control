@@ -1,0 +1,24 @@
+Source: lightdm-webkit2-greeter
+Section: x11
+Priority: optional
+Maintainer: Zijung Chueh <i@zijung.me>
+Build-Depends:
+ debhelper (>= 10),
+ meson,
+ libdbus-glib-1-dev,
+ libwebkit2gtk-4.0-dev,
+ liblightdm-gobject-dev,
+ libgtk-3-dev,
+Standards-Version: 4.1.1
+Homepage: https://github.com/Antergos/web-greeter
+Vcs-Git: https://github.com/Antergos/web-greeter.git
+Vcs-Browser: https://github.com/Antergos/web-greeter
+
+Package: lightdm-webkit2-greeter
+Architecture: any
+Depends: python3-whither, python3-gi, ${shlibs:Depends}, ${misc:Depends}
+Description: Modern, visually appealing greeter for LightDM
+ Web Greeter utilizes themes built with HTML/CSS/JavaScript for it's login
+ screen. Web Greeter themes provide modern, visually appealing, and feature-
+ rich login screens. Two themes are included by default. There is also a
+ growing number of 3rd-Party themes available online.
