@@ -1,0 +1,22 @@
+Source: python-whither
+Section: python
+Priority: optional
+Maintainer: Zijung Chueh <i@zijung.me>
+Build-Depends:
+ debhelper (>= 10),
+ dh-python,
+ python3,
+ python3-setuptools,
+Standards-Version: 4.1.2
+Homepage: https://github.com/Antergos/whither
+X-Python3-Version: >= 3.4
+Vcs-Git: https://github.com/Antergos/whither.git
+Vcs-Browser: https://github.com/Antergos/whither
+
+Package: python3-whither
+Architecture: all
+Depends: ${python3:Depends}, ${misc:Depends}, libqt5webengine5, python3-pyqt5
+Description: Universal Linux Application SDK - Create once. Run everywhere.
+ Whither allows developers to create universal desktop applications that can
+ run under Qt5 or Gtk3. A common API is provided so developers need not worry
+ about implementation details of the GUI toolkits.
