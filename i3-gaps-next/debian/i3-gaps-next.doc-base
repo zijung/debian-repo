@@ -1,0 +1,10 @@
+Document: i3-gaps-next
+Title: i3-gaps-next documentation
+Author: Michael Stapelberg
+Abstract: The documentation explains how to use and modify the i3 window
+ manager.
+Section: Window Managers
+
+Format: HTML
+Files: /usr/share/doc/i3-gaps-next/*.html
+Index: /usr/share/doc/i3-gaps-next/userguide.html

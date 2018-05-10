@@ -1,0 +1,49 @@
+#!/usr/bin/make -f
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+#export DH_VERBOSE = 1
+
+
+# see FEATURE AREAS in dpkg-buildflags(1)
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+# see ENVIRONMENT in dpkg-buildflags(1)
+# package maintainers to append CFLAGS
+#export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+# package maintainers to append LDFLAGS
+#export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+# Enable Multi-Arch support.
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
+
+override_dh_installchangelogs:
+	dh_installchangelogs RELEASE-NOTES-*
+
+override_dh_strip:
+	dh_strip --dbg-package=i3-gaps-next-dbg
+
+override_dh_auto_test:
+	# TODO: enable tests
+
+override_dh_auto_configure:
+	# The default is /usr/share/doc/i3
+	dh_auto_configure -- --disable-sanitizers
+
+%:
+	dh $@ --parallel --builddirectory=build --with=autoreconf
+
+
+PKD  = $(abspath $(dir $(abspath $(dir $(MAKEFILE_LIST)))))
+PKG  = $(shell dpkg-parsechangelog -l$(PKD)/debian/changelog --show-field=Source 2>/dev/null)
+VER ?= $(shell dpkg-parsechangelog -l$(PKD)/debian/changelog 2>/dev/null | perl -ne 'print $$1 if m{^Version:\s+(?:\d+:)?(\d.*)(?:\-\d+.*)};' 2>/dev/null)
+
+## http://wiki.debian.org/onlyjob/get-orig-source
+get-orig-source:  $(info I: $(PKG)_$(VER))
+	@echo "# Downloading..."
+	wget -qO- https://github.com/Airblader/i3/archive/$(VER).tar.gz | tar xz && \
+	rm -rf i3-$(VER)/debian && \
+	tar --exclude-vcs -czf i3-$(VER).tar.gz i3-$(VER) && \
+	rm -rf i3-$(VER) && \
+	cd $(PKD) && \
+	mk-origtargz --package $(PKG) --version $(VER) --rename --compression gzip --directory $(CURDIR) --copyright-file debian/copyright $(CURDIR)/i3-$(VER).tar.gz

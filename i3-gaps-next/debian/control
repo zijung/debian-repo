@@ -1,0 +1,51 @@
+Source: i3-gaps-next
+Section: x11
+Priority: optional
+Maintainer: Zijung Chueh <i@zijung.me>
+Build-Depends:
+ debhelper (>= 9),
+ libxcb-keysyms1-dev,
+ libpango1.0-dev,
+ libxcb-util0-dev,
+ xcb,
+ libxcb1-dev,
+ libxcb-icccm4-dev,
+ libyajl-dev,
+ libev-dev,
+ libxcb-xkb-dev,
+ libxcb-cursor-dev,
+ libxkbcommon-dev,
+ libxcb-xinerama0-dev,
+ libxkbcommon-x11-dev,
+ libstartup-notification0-dev,
+ libxcb-randr0-dev,
+ libxcb-xrm0,
+ libxcb-xrm-dev
+Standards-Version: 4.1.2
+Homepage: https://github.com/Airblader/i3
+Vcs-Git: https://github.com/Airblader/i3r.git
+Vcs-Browser: https://github.com/Airblader/i3
+
+Package: i3-gaps-next
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}, x11-utils
+Recommends: xfonts-base, fonts-dejavu-core, libanyevent-i3-perl (>= 0.12), libjson-xs-perl, rxvt-unicode | x-terminal-emulator
+Conflicts: i3-wm
+Provides: x-window-manager, i3-wm
+Replaces: i3-wm
+Description: improved dynamic tiling window manager
+ Key features of i3 are good documentation, reasonable defaults (changeable in
+ a simple configuration file) and good multi-monitor support. The user
+ interface is designed for power users and emphasizes keyboard usage. i3 uses
+ XCB for asynchronous communication with X11 and aims to be fast and
+ light-weight.
+ .
+ Please be aware i3 is primarily targeted at advanced users and developers.
+
+Package: i3-gaps-next-dbg
+Architecture: any
+Section: debug
+Depends: i3-gaps-next (=${binary:Version}), ${misc:Depends}
+Description: Debugging symbols for the i3 window manager
+ Debugging symbols for the i3 window manager. Please install this to produce
+ useful backtraces before creating new tickets.
