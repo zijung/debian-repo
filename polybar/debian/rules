@@ -1,0 +1,38 @@
+#!/usr/bin/make -f
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+#export DH_VERBOSE = 1
+
+
+# see FEATURE AREAS in dpkg-buildflags(1)
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+# see ENVIRONMENT in dpkg-buildflags(1)
+# package maintainers to append CFLAGS
+#export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+# package maintainers to append LDFLAGS
+#export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+# Enable Multi-Arch support.
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
+
+%:
+	dh $@ --buildsystem=cmake
+
+
+PKD  = $(abspath $(dir $(abspath $(dir $(MAKEFILE_LIST)))))
+PKG  = $(shell dpkg-parsechangelog -l$(PKD)/debian/changelog --show-field=Source 2>/dev/null)
+VER ?= $(shell dpkg-parsechangelog -l$(PKD)/debian/changelog 2>/dev/null | perl -ne 'print $$1 if m{^Version:\s+(?:\d+:)?(\d.*)(?:\-\d+.*)};' 2>/dev/null)
+
+## http://wiki.debian.org/onlyjob/get-orig-source
+get-orig-source:  $(info I: $(PKG)_$(VER))
+	@echo "# Downloading..."
+	git clone https://github.com/jaagr/polybar.git $(PKG)-$(VER) && \
+	git -C $(PKG)-$(VER) checkout tags/$(VER) && \
+	git -C $(PKG)-$(VER) submodule update --init --recursive && \
+	git -C $(PKG)-$(VER)/lib/xpp checkout 00165e1a6d5dd61bc153e1352b21ec07fc81245d && \
+	tar --exclude-vcs -czf $(PKG)-$(VER).tar.gz $(PKG)-$(VER) && \
+	rm -rf $(PKG)-$(VER) && \
+	cd $(PKD) && \
+	mk-origtargz --package $(PKG) --version $(VER) --rename --compression gzip --directory $(CURDIR) --copyright-file debian/copyright $(CURDIR)/$(PKG)-$(VER).tar.gz
