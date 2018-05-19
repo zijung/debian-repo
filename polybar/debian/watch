@@ -3,5 +3,5 @@ version=4
 
 # GitHub hosted projects
 opts="filenamemangle=s%(?:.*?)?v?(\d[\d.]*)\.tar\.gz%polybar-$1.tar.gz%" \
-   https://github.com/jaagr/polybar/tags \
-   (?:.*?/)?v?(\d[\d.]*)\.tar\.gz debian
+   https://github.com/jaagr/polybar/releases \
+   (?:.*?/)?v?(\d[\d.]*)\.tar\.gz

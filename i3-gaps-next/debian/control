@@ -19,7 +19,6 @@ Build-Depends:
  libxkbcommon-x11-dev,
  libstartup-notification0-dev,
  libxcb-randr0-dev,
- libxcb-xrm0,
  libxcb-xrm-dev
 Standards-Version: 4.1.2
 Homepage: https://github.com/Airblader/i3

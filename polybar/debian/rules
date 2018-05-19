@@ -20,19 +20,3 @@ DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 %:
 	dh $@ --buildsystem=cmake
 
-
-PKD  = $(abspath $(dir $(abspath $(dir $(MAKEFILE_LIST)))))
-PKG  = $(shell dpkg-parsechangelog -l$(PKD)/debian/changelog --show-field=Source 2>/dev/null)
-VER ?= $(shell dpkg-parsechangelog -l$(PKD)/debian/changelog 2>/dev/null | perl -ne 'print $$1 if m{^Version:\s+(?:\d+:)?(\d.*)(?:\-\d+.*)};' 2>/dev/null)
-
-## http://wiki.debian.org/onlyjob/get-orig-source
-get-orig-source:  $(info I: $(PKG)_$(VER))
-	@echo "# Downloading..."
-	git clone https://github.com/jaagr/polybar.git $(PKG)-$(VER) && \
-	git -C $(PKG)-$(VER) checkout tags/$(VER) && \
-	git -C $(PKG)-$(VER) submodule update --init --recursive && \
-	git -C $(PKG)-$(VER)/lib/xpp checkout 00165e1a6d5dd61bc153e1352b21ec07fc81245d && \
-	tar --exclude-vcs -czf $(PKG)-$(VER).tar.gz $(PKG)-$(VER) && \
-	rm -rf $(PKG)-$(VER) && \
-	cd $(PKD) && \
-	mk-origtargz --package $(PKG) --version $(VER) --rename --compression gzip --directory $(CURDIR) --copyright-file debian/copyright $(CURDIR)/$(PKG)-$(VER).tar.gz
