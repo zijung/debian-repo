@@ -2,7 +2,8 @@ Source: lightdm-webkit-theme-pantheon
 Section: x11
 Priority: optional
 Maintainer: Zijung Chueh <i@zijung.me>
-Build-Depends: debhelper (>= 10)
+Build-Depends:
+ debhelper (>= 10),
 Standards-Version: 4.1.2
 Homepage: https://github.com/zijung/lightdm-webkit-theme-pantheon
 Vcs-Git: https://github.com/zijung/lightdm-webkit-theme-pantheon.git
@@ -10,7 +11,8 @@ Vcs-Browser: https://github.com/zijung/lightdm-webkit-theme-pantheon
 
 Package: lightdm-webkit-theme-pantheon
 Architecture: all
-Depends: lightdm-webkit2-greeter
+Depends:
+ lightdm-webkit2-greeter,
 Description: Pantheon theme for lightdm-webkit2-greeter.
  Provides a theme for lightdm-webkit2-greeter,
  inspired by the pantheon-greeter as seen on elementary OS.

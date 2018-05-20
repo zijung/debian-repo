@@ -19,7 +19,7 @@ Build-Depends:
  libxkbcommon-x11-dev,
  libstartup-notification0-dev,
  libxcb-randr0-dev,
- libxcb-xrm-dev
+ libxcb-xrm-dev,
 Standards-Version: 4.1.2
 Homepage: https://github.com/Airblader/i3
 Vcs-Git: https://github.com/Airblader/i3r.git
@@ -27,8 +27,17 @@ Vcs-Browser: https://github.com/Airblader/i3
 
 Package: i3-gaps-next
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}, x11-utils
-Recommends: xfonts-base, fonts-dejavu-core, libanyevent-i3-perl (>= 0.12), libjson-xs-perl, rxvt-unicode | x-terminal-emulator
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ ${perl:Depends},
+ x11-utils,
+Recommends:
+ xfonts-base,
+ fonts-dejavu,
+ libanyevent-i3-perl (>= 0.12),
+ libjson-xs-perl,
+ x-terminal-emulator,
 Conflicts: i3-wm
 Provides: x-window-manager, i3-wm
 Replaces: i3-wm
@@ -44,7 +53,9 @@ Description: improved dynamic tiling window manager
 Package: i3-gaps-next-dbg
 Architecture: any
 Section: debug
-Depends: i3-gaps-next (=${binary:Version}), ${misc:Depends}
+Depends:
+ i3-gaps-next (=${binary:Version}),
+ ${misc:Depends},
 Description: Debugging symbols for the i3 window manager
  Debugging symbols for the i3 window manager. Please install this to produce
  useful backtraces before creating new tickets.

@@ -16,7 +16,11 @@ Vcs-Browser: https://github.com/Antergos/web-greeter
 
 Package: lightdm-webkit2-greeter
 Architecture: any
-Depends: python3-whither, python3-gi, ${shlibs:Depends}, ${misc:Depends}
+Depends:
+ python3-whither,
+ python3-gi,
+ ${shlibs:Depends},
+ ${misc:Depends},
 Description: Modern, visually appealing greeter for LightDM
  Web Greeter utilizes themes built with HTML/CSS/JavaScript for it's login
  screen. Web Greeter themes provide modern, visually appealing, and feature-

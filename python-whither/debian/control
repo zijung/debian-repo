@@ -15,7 +15,11 @@ Vcs-Browser: https://github.com/Antergos/whither
 
 Package: python3-whither
 Architecture: all
-Depends: ${python3:Depends}, ${misc:Depends}, libqt5webengine5, python3-pyqt5
+Depends:
+ ${python3:Depends},
+ ${misc:Depends},
+ libqt5webengine5,
+ python3-pyqt5,
 Description: Universal Linux Application SDK - Create once. Run everywhere.
  Whither allows developers to create universal desktop applications that can
  run under Qt5 or Gtk3. A common API is provided so developers need not worry

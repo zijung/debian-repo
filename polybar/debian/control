@@ -24,7 +24,7 @@ Build-Depends:
  libmpdclient-dev,
  libiw-dev,
  libcurl4-openssl-dev,
- libxcb-cursor-dev
+ libxcb-cursor-dev,
 Standards-Version: 4.1.2
 Homepage: https://github.com/jaagr/polybar
 Vcs-Git: https://github.com/jaagr/polybar.git
@@ -32,7 +32,9 @@ Vcs-Browser: https://github.com/jaagr/polybar
 
 Package: polybar
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
 Description: Fast and easy-to-use tool for creating status bars.
  Polybar aims to help users build beautiful and highly customizable
  status bars for their desktop environment, without the need of
