@@ -1,0 +1,53 @@
+Source: libwlc
+Section: x11
+Priority: optional
+Maintainer: Zijung Chueh <i@zijung.me>
+Uploaders:
+ Boyuan Yang <073plan@gmail.com>,
+Build-Depends:
+ cmake,
+ debhelper (>= 11~),
+ libdbus-1-dev,
+ libgbm-dev,
+ libgles2-mesa-dev,
+ libinput-dev,
+ libpixman-1-dev,
+ libsystemd-dev,
+ libudev-dev,
+ libx11-dev,
+ libxcb-composite0-dev,
+ libxcb-ewmh-dev,
+ libxcb-image0-dev,
+ libxcb-xfixes0-dev,
+ libxcb-xkb-dev,
+ libxcb1-dev,
+ libxfixes-dev,
+ libxkbcommon-dev,
+ wayland-protocols,
+ zlib1g-dev,
+Standards-Version: 4.1.4
+Homepage: https://github.com/Cloudef/wlc
+Vcs-Git: https://github.com/Cloudef/wlc.git
+Vcs-Browser: https://github.com/Cloudef/wlc
+
+Package: libwlc0
+Architecture: any
+Section: libs
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: High-level Wayland compositor library
+ This is a High-level Wayland compositor library.
+ .
+ This package provides library file.
+
+Package: libwlc-dev
+Architecture: any
+Section: libdevel
+Depends:
+ ${misc:Depends},
+ libwlc0 (=${binary:Version}),
+Description: High-level Wayland compositor library (development files)
+ This is a High-level Wayland compositor library.
+ .
+ This package provides development files.

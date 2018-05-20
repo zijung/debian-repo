@@ -1,0 +1,36 @@
+From: Timidger <APragmaticPlace@gmail.com>
+Date: Thu, 28 Dec 2017 11:04:09 -0600
+Subject: Don't send mode info twice on DRM refresh
+Applied-Upstream: commit:8c208368b78513f9860582ce5e7562b98857c25f
+
+Similar fix as this issue in wlroots: https://github.com/swaywm/wlroots/issues/535
+---
+ src/compositor/output.c | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+diff --git a/src/compositor/output.c b/src/compositor/output.c
+index 4532001..9e4bfb4 100644
+--- a/src/compositor/output.c
++++ b/src/compositor/output.c
+@@ -642,20 +642,15 @@ wlc_output_set_information(struct wlc_output *output, struct wlc_output_informat
+    const char *name = name_for_connector(output->information.connector);
+    chck_string_set_format(&output->information.name, "%s-%u", name, output->information.connector_id);
+ 
+-   bool set_resolution = false;
+-
+    {
+       struct wlc_output_mode *mode;
+       except(mode = chck_iter_pool_get(&output->information.modes, output->active.mode));
+       wlc_log(WLC_LOG_INFO, "%s Chose mode (%u) %dx%d", output->information.name.data, output->active.mode, mode->width, mode->height);
+       output->mode = (struct wlc_size){ mode->width, mode->height };
+       mode->flags |= WL_OUTPUT_MODE_CURRENT;
+-      set_resolution = wlc_output_set_resolution_ptr(output, &output->mode, output->scale);
++      wlc_output_set_resolution_ptr(output, &output->mode, output->scale);
+    }
+ 
+-   if (!set_resolution)
+-      output_push_to_resources(output);
+-
+    // XXX: set_information and set_resolution should probably be double buffered
+    //      and commited during start of next render to avoid spurious information updates
+ }
