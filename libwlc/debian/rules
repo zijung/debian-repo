@@ -15,7 +15,7 @@ export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
 
 %:
-	dh $@ --buildsystem=cmake
+	dh $@ --buildsystem=cmake --builddirectory=build
 
 override_dh_missing:
 	dh_missing --fail-missing
