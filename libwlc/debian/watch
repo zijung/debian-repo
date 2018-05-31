@@ -4,4 +4,4 @@ version=4
 # GitHub hosted projects
 opts="filenamemangle=s%(?:.*?)?v?(\d[\d.]*)\.tar\.bz2%wlc-$1.tar.bz2%" \
    https://github.com/Cloudef/wlc/releases \
-   (?:.*?/)?v?(\d[\d.]*)\.tar\.bz2
+   (?:.*?)?v?(\d[\d.]*)\.tar\.bz2

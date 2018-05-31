@@ -1,0 +1,7 @@
+# Compulsory line, this is a version 4 file
+version=4
+
+# GitHub hosted projects
+opts="filenamemangle=s%(?:.*?)?v?(\d[\d.]*)\.tar\.bz2%sway-$1.tar.gz%" \
+   https://github.com/swaywm/sway/releases \
+   (?:.*?/)?v?(\d[\d.]*)\.tar\.gz

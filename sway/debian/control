@@ -1,0 +1,33 @@
+Source: sway
+Section: x11
+Priority: optional
+Maintainer: Zijung Chueh <i@zijung.me>
+Build-Depends:
+ cmake,
+ debhelper (>= 11~),
+ asciidoc,
+ libpcre3-dev,
+ libcairo2-dev,
+ libpango1.0-dev,
+ libjson-c-dev,
+ libcap-dev,
+ libpam0g-dev,
+ libwlc-dev,
+ xsltproc,
+Standards-Version: 4.1.4
+Homepage: https://github.com/swaywm/sway
+Vcs-Git: https://github.com/swaywm/sway.git
+Vcs-Browser: https://github.com/swaywm/sway
+
+Package: sway
+Architecture: any
+Section: x11
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Recommends:
+ x-terminal-emulator,
+Provides: x-window-manager
+Description: Tiling window manager for Wayland
+ "SirCmpwn's Wayland compositor" is a work in progress
+ i3-compatible Wayland compositor.
