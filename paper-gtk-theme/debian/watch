@@ -1,0 +1,7 @@
+# Compulsory line, this is a version 4 file
+version=4
+
+# GitHub hosted projects
+opts="filenamemangle=s%(?:.*?)?v?(\d[\d.]*)\.tar\.gz%paper-gtk-theme-$1.tar.gz%" \
+   https://github.com/zijung/paper-gtk-theme/releases \
+   (?:.*?)?v?(\d[\d.]*)\.tar\.gz

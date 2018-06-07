@@ -1,0 +1,21 @@
+Source: paper-gtk-theme
+Section: x11
+Priority: optional
+Maintainer: Zijung Chueh <i@zijung.me>
+Uploaders:
+  Zijung Chueh <i@zijung.me>,
+Build-Depends: debhelper (>= 11~)
+Standards-Version: 4.1.4
+Homepage: https://github.com/zijung/paper-icon-theme
+Vcs-Git: https://github.com/zijung/paper-icon-theme.git
+Vcs-Browser: https://github.com/zijung/paper-icon-theme
+
+Package: paper-gtk-theme
+Architecture: all
+Depends:
+ gtk2-engines-pixbuf,
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: Paper Gtk Theme
+ Paper is a modern desktop theme suite. Its design is mostly
+ flat with a minimal use of shadows for depth.
