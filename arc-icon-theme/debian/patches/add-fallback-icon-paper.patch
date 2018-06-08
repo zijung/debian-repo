@@ -1,0 +1,11 @@
+Add Paper icon theme to fallback icon
+--- a/Arc/index.theme
++++ b/Arc/index.theme
+@@ -1,6 +1,6 @@
+ [Icon Theme]
+ Name=Arc
+-Inherits=Moka,Adwaita,gnome,hicolor
++Inherits=Paper,Moka,Adwaita,gnome,hicolor
+ Comment=Arc Icon theme
+ 
+ #Directory list

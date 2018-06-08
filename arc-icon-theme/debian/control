@@ -1,0 +1,19 @@
+Source: arc-icon-theme
+Section: x11
+Priority: optional
+Maintainer: Zijung Chueh <i@zijung.me>
+Uploaders:
+  Zijung Chueh <i@zijung.me>,
+Build-Depends: debhelper (>= 11~)
+Standards-Version: 4.1.4
+Homepage: https://github.com/horst3180/arc-icon-theme
+Vcs-Git: https://github.com/horst3180/arc-icon-theme.git
+Vcs-Browser: https://github.com/horst3180/arc-icon-theme
+
+Package: arc-icon-theme
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: Arc Icon Theme
+ Arc Icon Theme.
