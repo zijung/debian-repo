@@ -3,15 +3,15 @@ Section: x11
 Priority: optional
 Maintainer: Zijung Chueh <i@zijung.me>
 Build-Depends:
+ asciidoc,
  cmake,
  debhelper (>= 11~),
- asciidoc,
- libpcre3-dev,
  libcairo2-dev,
- libpango1.0-dev,
- libjson-c-dev,
  libcap-dev,
+ libjson-c-dev,
  libpam0g-dev,
+ libpango1.0-dev,
+ libpcre3-dev,
  libwlc-dev,
  xsltproc,
 Standards-Version: 4.1.4
@@ -27,7 +27,8 @@ Depends:
  ${shlibs:Depends},
 Recommends:
  x-terminal-emulator,
-Provides: x-window-manager
+Provides:
+ x-window-manager,
 Description: Tiling window manager for Wayland
  "SirCmpwn's Wayland compositor" is a work in progress
  i3-compatible Wayland compositor.

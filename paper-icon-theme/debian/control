@@ -3,8 +3,9 @@ Section: x11
 Priority: optional
 Maintainer: Zijung Chueh <i@zijung.me>
 Uploaders:
-  Zijung Chueh <i@zijung.me>,
-Build-Depends: debhelper (>= 11~)
+ Zijung Chueh <i@zijung.me>,
+Build-Depends:
+ debhelper (>= 11~),
 Standards-Version: 4.1.4
 Homepage: https://github.com/snwh/paper-icon-theme
 Vcs-Git: https://github.com/snwh/paper-icon-theme.git

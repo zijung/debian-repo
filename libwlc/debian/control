@@ -45,8 +45,8 @@ Package: libwlc-dev
 Architecture: any
 Section: libdevel
 Depends:
- ${misc:Depends},
  libwlc0 (=${binary:Version}),
+ ${misc:Depends},
 Description: High-level Wayland compositor library (development files)
  This is a High-level Wayland compositor library.
  .
