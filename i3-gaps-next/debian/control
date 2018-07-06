@@ -3,7 +3,9 @@ Section: x11
 Priority: optional
 Maintainer: Zijung Chueh <i@zijung.me>
 Build-Depends:
- debhelper (>= 9),
+ asciidoc,
+ debhelper (>= 11~),
+ docbook-xml,
  libev-dev,
  libpango1.0-dev,
  libstartup-notification0-dev,
@@ -19,6 +21,7 @@ Build-Depends:
  libxkbcommon-dev,
  libxkbcommon-x11-dev,
  libyajl-dev,
+ xmlto,
 Standards-Version: 4.1.2
 Homepage: https://github.com/Airblader/i3
 Vcs-Git: https://github.com/Airblader/i3r.git
