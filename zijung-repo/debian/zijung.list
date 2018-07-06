@@ -1,0 +1,2 @@
+deb https://repo.zijung.me/debian sid main
+deb-src https://repo.zijung.me/debian sid main
