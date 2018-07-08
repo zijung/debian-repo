@@ -4,12 +4,12 @@ Source: https://github.com/Airblader/i3
 
 Files: *
 Copyright: 2009 Michael Stapelberg
-Copyright: 2018 Ingo Bürk
+           2018 Ingo Bürk
 License: BSD-3-clause
 
 Files: debian/*
 Copyright: 2009 Michael Stapelberg
-Copyright: 2018 Zijung Chueh <i@zijung.me>
+           2018 Zijung Chueh <i@zijung.me>
 License: BSD-3-clause
 
 License: BSD-3-clause
